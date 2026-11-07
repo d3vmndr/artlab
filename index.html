@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Lab | Hetauda's Premiere Art & Craft Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        art: {
+                            purple: '#6D28D9',
+                            magenta: '#DB2777',
+                            teal: '#0D9488',
+                            gold: '#F59E0B',
+                            dark: '#0F172A',
+                            cream: '#FAF8F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        hand: ['"Caveat"', 'cursive'],
+                        serif: ['"Playfair Display"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Art Aesthetic Background Patterns */
+        .art-splash-bg {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(219, 39, 119, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(109, 40, 217, 0.2) 0%, transparent 50%);
+        }
+
+        .paint-border {
+            border-image: linear-gradient(to right, #DB2777, #6D28D9, #0D9488, #F59E0B) 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6D28D9;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DB2777;
+        }
+    </style>
+</head>
+<body class="bg-art-cream text-slate-800 font-sans antialiased selection:bg-art-magenta selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-art-purple via-art-magenta to-art-teal text-white text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wide shadow-inner">
+        <span class="inline-flex items-center gap-2">
+            <i class="fa-solid fa-paintbrush animate-bounce"></i>
+            Hetauda's First & Only Exclusive Fine Art, Studio & Craft Store! Visit us in Kantipath, Hetauda-4.
+        </span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-art-purple via-art-magenta to-art-gold p-0.5 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                            <i class="fa-solid fa-palette text-2xl text-transparent bg-clip-text bg-gradient-to-r from-art-magenta to-art-gold"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-black tracking-tight text-slate-900 block leading-none font-serif">ART LAB</span>
+                        <span class="text-xs font-semibold tracking-wider text-art-magenta uppercase">Hetauda • Fine Arts</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-semibold text-slate-700">
+                    <a href="#home" class="hover:text-art-purple transition-colors">Home</a>
+                    <a href="#catalog" class="hover:text-art-purple transition-colors">Art Supplies</a>
+                    <a href="#showcase" class="hover:text-art-purple transition-colors">Why Art Lab?</a>
+                    <a href="#about" class="hover:text-art-purple transition-colors">About Studio</a>
+                    <a href="#contact" class="hover:text-art-purple transition-colors">Contact & Location</a>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/9779800000000?text=Hi%20Art%20Lab%20Hetauda,%20I%20have%20an%20inquiry%20regarding%20art%20supplies!" target="_blank" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-art-purple to-art-magenta text-white font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg">="</i> Quick Inquiry
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-700 hover:text-art-purple hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-purple-50 hover:text-art-purple">Home</a>
+            <a href="#catalog" class="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-purple-50 hover:text-art-purple">Art Supplies</a>
+            <a href="#showcase" class="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-purple-50 hover:text-art-purple">Why Art Lab?</a>
+            <a href="#about" class="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-purple-50 hover:text-art-purple">About Studio</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-purple-50 hover:text-art-purple">Contact & Location</a>
+            <a href="https://wa.me/9779800000000?text=Hi%20Art%20Lab%20Hetauda,%20I%20have%20an%20inquiry!" target="_blank" class="block text-center w-full mt-4 px-5 py-2.5 rounded-full bg-gradient-to-r from-art-purple to-art-magenta text-white font-bold shadow">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative art-splash-bg text-white overflow-hidden py-20 lg:py-28">
+        <!-- Floating Decorative Elements -->
+        <div class="absolute top-10 left-10 opacity-20 pointer-events-none animate-pulse">
+            <i class="fa-solid fa-spray-can text-8xl text-art-magenta"></i>
+        </div>
+        <div class="absolute bottom-10 right-10 opacity-20 pointer-events-none animate-bounce" style="animation-duration: 6s;">
+            <i class="fa-solid fa-brush text-9xl text-art-teal"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-art-gold font-semibold text-sm">
+                        <i class="fa-solid fa-star"></i> Hetauda's Only Specialized Fine Art Station
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight font-serif">
+                        Unleash Your Creativity with <span class="text-transparent bg-clip-text bg-gradient-to-r from-art-magenta via-art-gold to-art-teal">Premium Art Mediums</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Welcome to **Art Lab**, Hetauda’s premier destination for professional artists, hobbyists, architects, and design students. Discover world-class paints, canvases, clay, and sculpting gear under one roof.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalog" class="px-8 py-4 rounded-xl bg-gradient-to-r from-art-magenta to-art-purple hover:from-art-purple hover:to-art-magenta text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all flex items-center gap-3">
+                            <i class="fa-solid fa-compass"></i> Explore Supplies
+                        </a>
+                        <a href="#contact" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg backdrop-blur-sm transition-all flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-art-gold"></i> Store Location
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-art-gold">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Authentic Brands</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-art-magenta">500+</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Art Mediums</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-black text-art-teal">Hetauda</p>
+                            <p class="text-xs sm:text-sm text-slate-400">Express Delivery</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-art-magenta via-art-purple to-art-teal blur-lg opacity-75 animate-pulse"></div>
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900 border border-white/20">
+                            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Art Lab Hetauda Supplies" 
+                                 class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex flex-col justify-end p-6">
+                                <span class="text-art-gold font-hand text-2xl">Crafted for Creators</span>
+                                <h3 class="text-white font-bold text-xl">Top International & Fine Art Brands Now in Makwanpur</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter & Product Catalog Section -->
+    <section id="catalog" class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-art-magenta font-bold uppercase tracking-wider text-sm">Curated Collection</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 font-serif">Explore Studio Grade Art Supplies</h2>
+                <p class="text-slate-600 mt-3 text-lg">Click any item for detailed specifications and direct order/inquiry options.</p>
+            </div>
+
+            <!-- Search and Filter Controls Bar -->
+            <div class="mb-10 space-y-6">
+                <!-- Search Box -->
+                <div class="max-w-md mx-auto relative">
+                    <input type="text" id="search-input" placeholder="Search from 100+ items (e.g. Tombow, Canson, Clay, Doms)..." 
+                        class="w-full pl-12 pr-4 py-3.5 rounded-full bg-white border border-slate-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-art-purple focus:border-transparent text-slate-800 font-medium">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                </div>
+
+                <!-- 9 Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5" id="filter-buttons">
+                    <button data-category="all" class="filter-btn active px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-art-purple text-white shadow-md">
+                        All (9 Groups)
+                    </button>
+                    <button data-category="pens" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-pen-nib text-art-magenta mr-1"></i> 1. Pens & Ink
+                    </button>
+                    <button data-category="pencils" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-pencil text-art-purple mr-1"></i> 2. Pencils & Erasers
+                    </button>
+                    <button data-category="paints" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-palette text-art-teal mr-1"></i> 3. Paints & Colours
+                    </button>
+                    <button data-category="tools" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-brush text-art-gold mr-1"></i> 4. Brushes & Easels
+                    </button>
+                    <button data-category="paper" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-book-open text-rose-500 mr-1"></i> 5. Paper & Canvas
+                    </button>
+                    <button data-category="books" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-heart text-indigo-500 mr-1"></i> 6. Colouring Books
+                    </button>
+                    <button data-category="craft" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-shapes text-amber-500 mr-1"></i> 7. Craft & Tapes
+                    </button>
+                    <button data-category="office" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-scissors text-emerald-500 mr-1"></i> 8. Cutting & Office
+                    </button>
+                    <button data-category="kits" class="filter-btn px-4 py-2 rounded-full font-bold text-xs sm:text-sm transition-all duration-300 bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+                        <i class="fa-solid fa-box-open text-cyan-500 mr-1"></i> 9. Art Kits & Sets
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Javascript will dynamically inject product cards here -->
+            </div>
+
+            <!-- Empty State for Search -->
+            <div id="no-results" class="hidden text-center py-16">
+                <i class="fa-solid fa-face-frown text-5xl text-slate-400 mb-4"></i>
+                <h3 class="text-xl font-bold text-slate-700">No matching art supplies found</h3>
+                <p class="text-slate-500 mt-1">Try searching for another keyword or clear filters.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why Art Lab Hetauda? (Showcase Feature Section) -->
+    <section id="showcase" class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-art-purple font-bold uppercase tracking-wider text-sm">Hetauda's Unique Hub</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 font-serif">Why Artists Choose Art Lab</h2>
+                <p class="text-slate-600 mt-3 text-lg">We bring standard artist grade materials to Makwanpur so you never have to compromise your vision.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-100 text-art-purple flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">100% Genuine Supplies</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Direct stock from authorized importers of Winsor & Newton, Mont Marte, Sakura, Faber-Castell, and Brustro.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-100 text-art-magenta flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Expert Consultation</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Not sure which medium or paper GSM fits your watercolor or resin art? Our knowledgeable team guides your selection.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-teal-100 text-art-teal flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Local Hetauda Delivery</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Same-day home delivery or store pickup available for art studios, schools, and creators anywhere in Hetauda valley.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Studio Section -->
+    <section id="about" class="py-20 art-splash-bg text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-art-gold font-bold uppercase tracking-wider text-sm">Our Story</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-serif leading-tight">
+                        Fueling the Creative Passion of Hetauda's Art Community
+                    </h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Historically, artists and art students in Hetauda had to rely on limited general stationery shops or travel all the way to Kathmandu for specialized tools. 
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        **Art Lab** was established to fill this gap. We are Hetauda’s first dedicated fine art station—designed to empower visual artists, calligraphers, architects, hobbyists, and DIY crafters with top-tier tools, professional pigments, and specialized canvas media.
+                    </p>
+                    
+                    <div class="p-4 rounded-2xl bg-white/10 border border-white/20 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-art-gold/20 text-art-gold flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <p class="text-xs sm:text-sm italic text-slate-200">
+                            "Art is not what you see, but what you make others see. We provide the finest tools to make that vision real."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80" alt="Art Materials" class="rounded-2xl shadow-lg object-cover h-64 w-full transform hover:scale-105 transition-transform">
+                    <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80" alt="Painting Canvas" class="rounded-2xl shadow-lg object-cover h-64 w-full translate-y-6 transform hover:scale-105 transition-transform">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Store Location Section -->
+    <section id="contact" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-art-magenta font-bold uppercase tracking-wider text-sm">Visit or Inquire</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 font-serif">Get in Touch with Art Lab</h2>
+                <p class="text-slate-600 mt-3 text-lg">Have a specific art product requirement or looking for studio supplies? Reach out to us directly!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Contact Details & Map -->
+                <div class="lg:col-span-5 bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900 font-serif">Store Information</h3>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 text-art-purple flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Store Address</h4>
+                            <p class="text-slate-600 text-sm mt-0.5">Kantipath, Ward No. 4, Hetauda, Makwanpur, Nepal</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-100 text-art-magenta flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Phone / Call</h4>
+                            <p class="text-slate-600 text-sm mt-0.5">+977 980-0000000 / 057-520000</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-teal-100 text-art-teal flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">WhatsApp Inquiry</h4>
+                            <p class="text-slate-600 text-sm mt-0.5">+977 9800000000 (Quick response)</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-art-gold flex items-center justify-center text-xl flex-shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Opening Hours</h4>
+                            <p class="text-slate-600 text-sm mt-0.5">Sunday - Friday: 9:00 AM - 7:00 PM</p>
+                            <p class="text-slate-600 text-sm">Saturday: 10:00 AM - 5:00 PM</p>
+                        </div>
+                    </div>
+
+                    <!-- Store Location Highlight Box -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-100 text-xs text-slate-700 flex items-center gap-3">
+                        <i class="fa-solid fa-map-pin text-art-magenta text-xl"></i>
+                        <span>Located conveniently in central Hetauda, close to major schools & commercial centers.</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Order / Inquiry Form -->
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
+                    <h3 class="text-2xl font-bold text-slate-900 font-serif mb-2">Send an Product Inquiry</h3>
+                    <p class="text-slate-600 text-sm mb-6">Fill out what art supplies you need and we will confirm availability & options for you immediately.</p>
+
+                    <form id="inquiry-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Your Name</label>
+                                <input type="text" id="form-name" required placeholder="e.g., Suman Shrestha" 
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-art-purple text-slate-800 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Phone / WhatsApp Number</label>
+                                <input type="tel" id="form-phone" required placeholder="98XXXXXXXX" 
+                                    class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-art-purple text-slate-800 text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Interested Product Category</label>
+                            <select id="form-category" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-art-purple text-slate-800 text-sm">
+                                <option value="General Art Supplies">General Art Supplies</option>
+                                <option value="Acrylic & Watercolors">Acrylic & Watercolors</option>
+                                <option value="Canvas Boards & Stretched Canvas">Canvas Boards & Stretched Canvas</option>
+                                <option value="Sketchbooks & Heavy GSM Paper">Sketchbooks & Heavy GSM Paper</option>
+                                <option value="Calligraphy & Brush Pens">Calligraphy & Brush Pens</option>
+                                <option value="Clay & Craft Kits">Clay & Craft Kits</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Your Requirements / Message</label>
+                            <textarea id="form-message" rows="4" required placeholder="Specify items, quantities, brand preference or delivery location in Hetauda..." 
+                                class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-art-purple text-slate-800 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-art-purple via-art-magenta to-art-teal text-white font-bold text-base shadow-lg hover:opacity-95 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Submit Inquiry via WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-art-purple to-art-magenta p-0.5">
+                        <div class="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center text-white">
+                            <i class="fa-solid fa-palette text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-white font-serif tracking-tight">ART LAB</span>
+                        <span class="text-xs text-art-gold block">Hetauda, Nepal</span>
+                    </div>
+                </div>
+
+                <p class="text-xs text-center md:text-left">
+                    &copy; <span id="current-year"></span> Art Lab Hetauda. All Rights Reserved. The only exclusive destination for fine art & craft in Makwanpur.
+                </p>
+
+                <div class="flex space-x-4 text-lg text-white">
+                    <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-art-purple transition-colors">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-art-magenta transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/9779800000000" target="_blank" class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center hover:bg-art-teal transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal Drawer -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl transform transition-all relative animate-fade-in max-h-[90vh] flex flex-col">
+            
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center text-lg z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="overflow-y-auto p-6 sm:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                    <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+                        <img id="modal-img" src="" alt="" class="w-full h-64 object-cover">
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <span id="modal-category" class="px-3 py-1 rounded-full bg-purple-100 text-art-purple font-bold text-xs inline-block uppercase tracking-wider">Category</span>
+                        <h3 id="modal-title" class="text-2xl font-black text-slate-900 font-serif">Product Title</h3>
+                        <p id="modal-brand" class="text-sm font-semibold text-art-magenta">Brand</p>
+                        <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed">Detailed description will appear here.</p>
+                    </div>
+                </div>
+
+                <!-- Specifications Box -->
+                <div class="mt-6 pt-6 border-t border-slate-100">
+                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-3">Key Specifications & Features</h4>
+                    <ul id="modal-specs" class="space-y-2 text-sm text-slate-700">
+                        <!-- Dynamic list items -->
+                    </ul>
+                </div>
+
+                <!-- Availability Badge & WhatsApp Inquiry -->
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div>
+                        <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> In Stock at Hetauda Store
+                        </span>
+                        <p class="text-xs text-slate-500">Contact us to check shade variants or sizes.</p>
+                    </div>
+                    <a id="modal-whatsapp-btn" href="#" target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Inquire / Order Now
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Data and Interactive Controller -->
+    <script>
+        // Complete Group-Wise Product Dataset for Art Lab Hetauda
+        const productsData = [
+            // GROUP 1: Pens, Markers, Calligraphy & Ink
+            {
+                id: 101,
+                title: "Tombow Fudenosuke Brush Pen",
+                category: "pens",
+                brand: "Tombow Japan",
+                image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80",
+                description: "Flexible brush tips for calligraphy and hand lettering. Available in Hard Tip and Twin Tip variants.",
+                specs: ["Water-based pigmented ink", "Hard Tip & Twin Tip options", "Smudge-proof & archival quality", "Ideal for fine script & drawings"]
+            },
+            {
+                id: 102,
+                title: "Tombow Dual Brush Pen",
+                category: "pens",
+                brand: "Tombow Japan",
+                image: "https://images.unsplash.com/photo-1585336261026-8f57857a47ef?auto=format&fit=crop&w=600&q=80",
+                description: "Dual nib pen featuring a flexible brush tip and fine bullet nib. Available in Black N15 and 10-Color sets.",
+                specs: ["Dual Nib: Nylon Brush & Fine Nib", "Water-based blendable ink", "Available single (N15) & 10-color pack", "Self-cleaning brush tip"]
+            },
+            {
+                id: 103,
+                title: "Uni Pin Fineliner Set (0.3 / 0.5 / 0.8)",
+                category: "pens",
+                brand: "Uni Mitsubishi",
+                image: "https://images.unsplash.com/photo-1569091791842-7cfb64e04797?auto=format&fit=crop&w=600&q=80",
+                description: "Precision technical drawing pens with Super Ink formula. Water-resistant and light-fast.",
+                specs: ["Nib Sizes: 0.3mm, 0.5mm, 0.8mm", "Uni Super Ink (Waterproof & Fade-proof)", "Steel-supported nib collar", "Perfect for line art & bullet journals"]
+            },
+            {
+                id: 104,
+                title: "Pilot V5 Hi-Tecpoint Rollerball",
+                category: "pens",
+                brand: "Pilot",
+                image: "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
+                description: "Classic liquid ink rollerball pen offering skip-free, smooth writing with visual ink level window.",
+                specs: ["0.5mm extra fine needle tip", "Liquid ink controller mechanism", "Pure liquid ink system", "Smooth non-blobbing writing"]
+            },
+            {
+                id: 105,
+                title: "Sign Pen Color 24 (EC10020)",
+                category: "pens",
+                brand: "Sign Pen",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Vibrant 24-color sign pen marker set for sketching, diagramming, and colorful notes.",
+                specs: ["24 bright color shades", "Durable fiber tip", "Non-toxic water-based ink", "Ideal for school & studio use"]
+            },
+            {
+                id: 106,
+                title: "Sketch Marker Color Run (24 & 36 Pack)",
+                category: "pens",
+                brand: "Color Run Studio",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+                description: "Art sketch markers designed for quick illustration, fashion rendering, and design concepts.",
+                specs: ["24 and 36 color assortment packs", "Quick-drying formulation", "Ergonomic square barrel", "Includes portable storage box"]
+            },
+            {
+                id: 107,
+                title: "Alcohol Marker Set (12 & 24 Colors)",
+                category: "pens",
+                brand: "Art Lab Select",
+                image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80",
+                description: "Professional alcohol-based dual markers for smooth blending without paper tearing.",
+                specs: ["Broad Chisel & Fine Bullet nibs", "12 and 24 color sets", "Seamless gradient blending", "Architectural & manga illustration ready"]
+            },
+            {
+                id: 108,
+                title: "Acrylic Paint Marker Set (12 & 24 Colors)",
+                category: "pens",
+                brand: "Art Lab Pro",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Multi-surface acrylic paint markers. Works on wood, glass, rocks, canvas, and ceramic.",
+                specs: ["Waterproof opaque acrylic ink", "12 and 24 color options", "Pump-action precision nib", "Multi-surface application"]
+            },
+            {
+                id: 109,
+                title: "Calligraphy Markers (5-Set & Chren Series)",
+                category: "pens",
+                brand: "Chren / Art Lab",
+                image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80",
+                description: "Chisel-edge calligraphy markers tailored for italic, Gothic, and Arabic lettering script.",
+                specs: ["Assorted wedge nib sizes", "Deep black archival pigment", "5-piece set & Chren specialized markers", "Ideal for certificates & cards"]
+            },
+            {
+                id: 110,
+                title: "Fountain Pen Caltrix Series",
+                category: "pens",
+                brand: "Caltrix",
+                image: "https://images.unsplash.com/photo-1585336261026-8f57857a47ef?auto=format&fit=crop&w=600&q=80",
+                description: "Classic metal body fountain pen with stainless steel nib for daily writing and calligraphy.",
+                specs: ["Medium & Fine nib options", "Includes ink converter", "Refillable with standard cartridges", "Weighted ergonomic grip"]
+            },
+            {
+                id: 111,
+                title: "Uni Fineliner Sets (3pcs / 6pcs / 12pcs)",
+                category: "pens",
+                brand: "Uni Mitsubishi",
+                image: "https://images.unsplash.com/photo-1569091791842-7cfb64e04797?auto=format&fit=crop&w=600&q=80",
+                description: "Curated sets of Uni technical fineliners across multiple line widths for detailed drafting.",
+                specs: ["Available in 3-pack, 6-pack, and 12-pack", "Black fade-proof pigment ink", "High precision line control", "Smudge-resistant under watercolor"]
+            },
+            {
+                id: 112,
+                title: "Fountain Pen Cartridge Refills (French & Indian)",
+                category: "pens",
+                brand: "Imported Standard",
+                image: "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
+                description: "Standard international format ink cartridges in royal blue and intense black.",
+                specs: ["French & Indian standard cartridges", "Quick-flow smooth ink", "Pack of 10 / 20 refills", "Universal fountain pen fit"]
+            },
+            {
+                id: 113,
+                title: "Water Brush Pen Set (Refillable)",
+                category: "pens",
+                brand: "Art Lab Studio",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Squeezable water reservoir brush pens for watercolor field sketching and blending.",
+                specs: ["3 Tip sizes (Fine, Medium, Broad)", "Leak-proof squeeze barrel", "Soft nylon bristle tips", "Portable outdoor painting gear"]
+            },
+
+            // GROUP 2: Pencils, Leads, Sharpeners, Erasers & Drawing Tools
+            {
+                id: 201,
+                title: "Tombow MONO Graph Mechanical Pencil (0.5mm)",
+                category: "pencils",
+                brand: "Tombow Japan",
+                image: "https://images.unsplash.com/photo-1585336261026-8f57857a47ef?auto=format&fit=crop&w=600&q=80",
+                description: "Innovative shaker mechanism pencil with twistable MONO eraser top.",
+                specs: ["0.5mm HB mechanism", "Shaker feed & clip lock", "Built-in twist MONO eraser", "Refillable leads"]
+            },
+            {
+                id: 202,
+                title: "Tombow MONO GRAPH Spare Leads (0.3mm B / 0.5mm)",
+                category: "pencils",
+                brand: "Tombow Japan",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "High-density break-resistant graphite lead refill for drafting mechanical pencils.",
+                specs: ["0.3mm and 0.5mm lead diameters", "B and HB hardness grades", "Ultra-smooth dark writing", "Dispenser case included"]
+            },
+            {
+                id: 203,
+                title: "STABILO Mechanical Pencils (3555 0.5mm & 3557 0.7mm)",
+                category: "pencils",
+                brand: "STABILO Germany",
+                image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80",
+                description: "Ergonomic mechanical pencils engineered for exam writing and technical sketch work.",
+                specs: ["Models 3555 (0.5mm) & 3557 (0.7mm)", "Non-slip rubberized grip zone", "Cushioned lead mechanism", "Integrated eraser cap"]
+            },
+            {
+                id: 204,
+                title: "STABILO Exam Grade Lead Refill (2.0mm 2B) & Sharpener",
+                category: "pencils",
+                brand: "STABILO Germany",
+                image: "https://images.unsplash.com/photo-1569091791842-7cfb64e04797?auto=format&fit=crop&w=600&q=80",
+                description: "Thick 2.0mm 2B leads for OMR exam sheets and freehand shading alongside precision lead sharpeners.",
+                specs: ["2.0mm 2B extra-dark leads (Pack of 6)", "Includes specialized 2.0mm sharpener", "High break resistance", "Optimum optical scanner dark tone"]
+            },
+            {
+                id: 205,
+                title: "STABILO Othello Sketching Pencils (Hard & Soft)",
+                category: "pencils",
+                brand: "STABILO Germany",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Classic break-resistant graphite sketching pencils across complete soft to hard grades.",
+                specs: ["Grades from 2H to 8B", "Break-resistant bonded lead", "Matt finish hexagonal barrel", "Ideal for portrait & shading work"]
+            },
+            {
+                id: 206,
+                title: "Acmeliae Color Pencils (Pastel 12 / Ultra Soft 12 & 24)",
+                category: "pencils",
+                brand: "Acmeliae",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Richly pigmented color pencils with buttery ultra-soft cores and delicate pastel shades.",
+                specs: ["Pastel 12-set & Ultra Soft 12/24 sets", "3.8mm thick soft core", "Vibrant laydown & blendability", "Pre-sharpened wooden body"]
+            },
+            {
+                id: 207,
+                title: "Acmeliae 3-Hole Sharpener & Eraser Sets",
+                category: "pencils",
+                brand: "Acmeliae",
+                image: "https://images.unsplash.com/photo-1585336261026-8f57857a47ef?auto=format&fit=crop&w=600&q=80",
+                description: "SP-002 3-hole sharpener for varied pencil sizes plus dust-free TPE eraser sets.",
+                specs: ["SP-002 3-hole pencil sharpener", "Days of Week 7-pack erasers", "Dust-free TPE 4-pack erasers", "Clean residue-free erasing"]
+            },
+            {
+                id: 208,
+                title: "Natraj Pigeon & Camel Sketch Pencil Sets",
+                category: "pencils",
+                brand: "Natraj / Camel",
+                image: "https://images.unsplash.com/photo-1569091791842-7cfb64e04797?auto=format&fit=crop&w=600&q=80",
+                description: "Standard drawing and sketching pencil sets for students and fine artists.",
+                specs: ["Natraj Pigeon value pencil kit", "Camel graded sketch pencil set", "Smooth graphite lead", "Break-resistant wood casing"]
+            },
+            {
+                id: 209,
+                title: "Pilot Mechanical Pencil 0.5 HB & Spare Lead",
+                category: "pencils",
+                brand: "Pilot",
+                image: "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80",
+                description: "Durable metal tip 0.5mm mechanical pencil with matching HB lead refills.",
+                specs: ["0.5mm precise line width", "HB high-purity graphite leads", "Slim pocket clip design", "Reliable clutch mechanism"]
+            },
+            {
+                id: 210,
+                title: "Marie's Kneadable Eraser",
+                category: "pencils",
+                brand: "Marie's",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Malleable putty eraser for lifting graphite, charcoal highlights, and blending without crumbs.",
+                specs: ["Pliable putty kneadable texture", "Lifts charcoal & graphite clean", "Leaves no eraser dust", "Reusable plastic storage case"]
+            },
+            {
+                id: 211,
+                title: "Charcoal Pencils, Powder & Willow Sticks",
+                category: "pencils",
+                brand: "Art Lab Fine Art",
+                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
+                description: "Soft & Medium charcoal pencils, natural willow charcoal sticks, and rich charcoal powder.",
+                specs: ["Soft & Medium wood-cased charcoal pencils", "Pure natural willow charcoal sticks", "Finely milled charcoal powder for shading", "Deep matte black finish"]
+            },
+            {
+                id: 212,
+                title: "Color Pencils (Deli 12 C132-12 & Natraj 24)",
+                category: "pencils",
+                brand: "Deli / Natraj",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Full size smooth color pencil packs for sketching, coloring, and design work.",
+                specs: ["Deli C132-12 color pack", "Natraj 24-color shade pack", "Break-proof bonded leads", "Non-toxic colors"]
+            },
+
+            // GROUP 3: Paints, Colours & Colour Sets
+            {
+                id: 301,
+                title: "Mont Marte Two Seasons Watercolours (18pc x 12ml)",
+                category: "paints",
+                brand: "Mont Marte",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Richly pigmented 18-tube watercolor set with high transparency and smooth tinting strength.",
+                specs: ["18 tubes x 12ml volume", "High clarity transparency", "Excellent lightfastness", "Ideal for students & professionals"]
+            },
+            {
+                id: 302,
+                title: "Acmeliae Watercolor Pocket Sets (12, 24, 36, 48 Colors)",
+                category: "paints",
+                brand: "Acmeliae",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Compact travel watercolor pan sets featuring built-in mixing palette and water brush pen.",
+                specs: ["Available in 12, 24, 36, 48 pans", "Includes water brush & sponge", "Sturdy metal travel case", "Concentrated cake pigments"]
+            },
+            {
+                id: 303,
+                title: "Art Ranger Acrylic Color (75ml Tubes)",
+                category: "paints",
+                brand: "Art Ranger",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Heavy body satin-finish acrylic tubes in individual 75ml volumes across popular artist shades.",
+                specs: ["75ml squeezable tube format", "Dries to a water-resistant finish", "High coverage & rich opacity", "Works on canvas, wood, paper"]
+            },
+            {
+                id: 304,
+                title: "Art Ranger 12-Color Mica Powder Set (10g)",
+                category: "paints",
+                brand: "Art Ranger",
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+                description: "Shimmering pearlescent mica powders for resin art, metallic painting, and craft projects.",
+                specs: ["12 pearlescent metallic colors", "10g jar per color", "Non-toxic fine particle powder", "Resin, acrylic, and soap dye ready"]
+            },
+            {
+                id: 305,
+                title: "Camel Water Color Tubes & Watercolor Tablet Sets",
+                category: "paints",
+                brand: "Camel Kokuyo",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Trusted Indian artist watercolor tube sets and compact tablet cake palettes.",
+                specs: ["Selected vibrant shade assortments", "Quick dissolving tablets", "Rich color strength", "Ideal for school & art academies"]
+            },
+            {
+                id: 306,
+                title: "Artist Water Color Cake Sets (Regular, Skintone, Pastel)",
+                category: "paints",
+                brand: "Art Lab Select",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Specialized watercolor cake palettes tailored for portraiture (skintones) and soft pastel themes.",
+                specs: ["Regular, Skintone, and Pastel theme packs", "High pigment concentration", "Smooth wash application", "Includes mixing lid"]
+            },
+            {
+                id: 307,
+                title: "Poster Color Sets (6 & 10 Jars)",
+                category: "paints",
+                brand: "Camel / Doms",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Opaque water-based poster colors in sturdy glass jars for smooth flat coverage.",
+                specs: ["6 and 10 color jar sets", "Opaque matte finish", "Mixes effortlessly with water", "Ideal for poster design & banners"]
+            },
+            {
+                id: 308,
+                title: "Acrylic Paint Sets (Tubes & 10pcs Packs)",
+                category: "paints",
+                brand: "Art Lab Pro",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Comprehensive acrylic paint sets for multi-surface painting projects.",
+                specs: ["Complete color shade assortments", "Fast drying acrylic formula", "Flexible crack-resistant film", "Canvas & wood compatible"]
+            },
+            {
+                id: 309,
+                title: "Oil Paint Set (24 Tube Colors)",
+                category: "paints",
+                brand: "Marie's / Art Ranger",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Traditional oil painting color tube set featuring rich brilliance and slow drying times.",
+                specs: ["24 x 12ml oil paint tubes", "Pure oil medium formulation", "High color tint strength", "Canvas stretched painting ready"]
+            },
+            {
+                id: 310,
+                title: "Oil Pastels, Wax Crayons & Doms Tempera",
+                category: "paints",
+                brand: "Deli / Doms",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Soft oil pastels, Deli wax crayons, and Doms tempera poster shades for vibrant artwork.",
+                specs: ["Smooth blendable oil pastels", "Deli non-toxic wax crayons", "Doms tempera liquid paints", "Vivid color spectrum"]
+            },
+            {
+                id: 311,
+                title: "Chinjoo White & Primary Colour Jars",
+                category: "paints",
+                brand: "Chinjoo Fine Art",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Large volume titanium white opaque gouache/acrylic and primary color base jars.",
+                specs: ["Large volume jar packaging", "High opacity Chinjoo titanium white", "Pure primary yellow, red, blue bases", "Essential studio mixing paint"]
+            },
+
+            // GROUP 4: Brushes, Palettes, Easels & Painting Tools
+            {
+                id: 401,
+                title: "Iso Mars Fine Brushes (Round 000 & Flat No.1)",
+                category: "tools",
+                brand: "Iso Mars",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Ultra-fine detail brushes designed for miniature painting, eyelash details, and fine outline work.",
+                specs: ["Round No. 000 & Flat No. 1", "Synthetic golden taklon bristles", "Precision point tip retention", "Seamless metal ferrule"]
+            },
+            {
+                id: 402,
+                title: "Fan Brush & Blue Handle Mix Brush Sets",
+                category: "tools",
+                brand: "Art Lab Pro",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Fan shape bristle brushes for painting foliage, textures, and blending alongside 10-pc brush kits.",
+                specs: ["Assorted fan brush sizes", "Blue handle multi-brush set", "Ideal for acrylics, oils, and watercolor", "Durable wooden handles"]
+            },
+            {
+                id: 403,
+                title: "Phoenix Mop Brushes (No. 0, 1, 2, 4, 6, 8)",
+                category: "tools",
+                brand: "Phoenix Fine Art",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Ultra-soft mop brushes with high water retention for background watercolor washes and soft blending.",
+                specs: ["Sizes: 0, 1, 2, 4, 6, and 8", "Natural soft hair head", "High water holding capacity", "Generates smooth uniform washes"]
+            },
+            {
+                id: 404,
+                title: "Long Handle Studio Brushes (Flat, Round, Angular, Filbert)",
+                category: "tools",
+                brand: "Art Lab Studio",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Easel length wooden handle brushes for oil and acrylic canvas easel painting.",
+                specs: ["Flat, Round, Angular, and Filbert heads", "Long polished wooden handle", "Resilient bristle elasticity", "Available individually & sets"]
+            },
+            {
+                id: 405,
+                title: "Khyati Mixing Palettes & Folding Palette",
+                category: "tools",
+                brand: "Khyati / Art Lab",
+                image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+                description: "Durable color mixing plates including rectangle medium A037, small flower, and folding travel palettes.",
+                specs: ["Khyati A037 Rectangle & Flower design", "Folding leak-proof color tray", "Easy clean plastic material", "Multiple deep mixing wells"]
+            },
+            {
+                id: 406,
+                title: "Stainless Steel Palette Knife Set of 5",
+                category: "tools",
+                brand: "Art Lab Select",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Flexible stainless steel painting knives for impasto techniques and color mixing on palettes.",
+                specs: ["Set of 5 unique blade shapes", "Flexible stainless steel blades", "Wooden handles with brass ferrules", "Ideal for acrylic & oil knife painting"]
+            },
+            {
+                id: 407,
+                title: "Canvas Pliers & Studio Fixative Spray",
+                category: "tools",
+                brand: "Art Lab Tools",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Heavy duty canvas stretching pliers and protective fixative spray for charcoal, pastel, and pencil art.",
+                specs: ["Spring-loaded canvas stretching pliers", "Non-yellowing clear fixative spray", "Prevents smudge on pastel & charcoal", "Essential framing & preparation tools"]
+            },
+            {
+                id: 408,
+                title: "Aluminium Easel & Mini Easel with Canvas (10x10 / 7x9)",
+                category: "tools",
+                brand: "Art Lab Studio",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Lightweight collapsible aluminum tripod studio easel along with mini desktop canvas display easels.",
+                specs: ["Adjustable height aluminum tripod easel", "Includes carry bag for field painting", "Mini easels with 10x10 & 7x9 cm canvases", "Sturdy canvas support brackets"]
+            },
+
+            // GROUP 5: Paper, Sketchbooks, Canvas & Boards
+            {
+                id: 501,
+                title: "Anupam SketchO Drawing Book (A5, 140 GSM, 128p)",
+                category: "paper",
+                brand: "Anupam",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Wire-o bound A5 sketch journal with 140 GSM cartridge paper for graphite, ink, and colored pencil.",
+                specs: ["A5 size with twin wire binding", "140 GSM acid-free paper", "128 micro-perforated pages", "Durable protective cover"]
+            },
+            {
+                id: 502,
+                title: "ProArt Hardbound Diary Sketch Book (120 GSM, A6/A5)",
+                category: "paper",
+                brand: "ProArt",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Hardbound thread-sewn art diary with smooth 120 GSM paper suitable for ink and dry media.",
+                specs: ["Sizes: A6 and A5", "120 GSM natural shade paper", "128 pages hardbound cover", "Ribbon bookmark included"]
+            },
+            {
+                id: 503,
+                title: "ProArt Studio Watercolor Wiro (300 GSM, A5-24 Sheets)",
+                category: "paper",
+                brand: "ProArt",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Heavyweight 300 GSM cold-pressed watercolor paper spiral pad for wet media techniques.",
+                specs: ["300 GSM heavy cold-pressed texture", "24 sheets wire-O bound", "Acid-free non-buckling paper", "Ideal for watercolors & gouache"]
+            },
+            {
+                id: 504,
+                title: "ProArt Visual Art & Wiro Sketch Books (120 & 160 GSM)",
+                category: "paper",
+                brand: "ProArt",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Visual Art Diary Wiro (120 GSM, A5-120p) and Wiro Sketch Book (160 GSM, A5-46 sheets).",
+                specs: ["120 GSM & 160 GSM paper options", "Robust twin wire binding", "Acid-free sketching texture", "Ideal for daily studies & ink sketches"]
+            },
+            {
+                id: 505,
+                title: "ProArt Heritage Pink Dot Grid Journal (A5, 200 GSM)",
+                category: "paper",
+                brand: "ProArt",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Ultra-thick 200 GSM dot grid pink cover journal designed for bullet journaling and gouache painting.",
+                specs: ["200 GSM extra thick pages (No ghosting)", "Pink hardcover aesthetic design", "5mm subtle dot grid pattern", "Lay-flat thread binding"]
+            },
+            {
+                id: 506,
+                title: "ProArt Artists Drawing Wiro & Pads (200 GSM, A4/A5/A3)",
+                category: "paper",
+                brand: "ProArt",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Heavy 200 GSM drawing pads across A3, A4, and A5 sizes for finished artwork and mixed media.",
+                specs: ["200 GSM heavy drawing paper", "Available in A3 pad (24 sheets) & A4/A5 wiro", "Medium tooth surface", "Resists repeated erasing"]
+            },
+            {
+                id: 507,
+                title: "Handmade 300GSM, Ivory Reams & Canson Montval Paper",
+                category: "paper",
+                brand: "Canson / Shipra / Classmate",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Handmade deckle paper 300GSM, Ivory sheets (125 Ream), Canson Montval A3/A4, Shipra & Classmate pads.",
+                specs: ["Canson Montval A3/A4 watercolor sheets", "100% cotton 300GSM handmade sheets", "Ivory paper 125-sheet reams", "Classmate A4 & Shipra A3 drawing pads"]
+            },
+            {
+                id: 508,
+                title: "Black & Craft Paper Sketchbooks (A4 & A5)",
+                category: "paper",
+                brand: "Deli / Art Lab",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                description: "Specialty dark black paper sketchbooks and vintage craft brown paper pads for metallic pens and gouache.",
+                specs: ["Black paper sketchbooks (A4 & A5)", "Craft paper sketchbooks (A4 & A5)", "Deli B5 & A4 drawing notebooks", "High contrast backdrop for metallic inks"]
+            },
+            {
+                id: 509,
+                title: "Stretched Canvases, Canvas Rolls & Boards Assortment",
+                category: "paper",
+                brand: "Art Lab Canvas Studio",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Stretched canvases (4x6\" 2-pack), Mini boards (8x10\" 2-pack), Canvas Rolls (48\", 72\"), and Boards (3x3 up to 12x16).",
+                specs: ["100% Cotton 380 GSM triple gesso primed", "Stretched 4x6\" & Mini Board 8x10\" 2-packs", "Bulk Canvas Rolls in 48\" & 72\" widths", "Boards: 3x3, 4x6, 10x12, 12x16 inches"]
+            },
+
+            // GROUP 6: Colouring Books
+            {
+                id: 601,
+                title: "Dreamland Mindfulness & Colouring Book",
+                category: "books",
+                brand: "Dreamland",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Mindfulness art therapeutic coloring book for stress relief and creative relaxation.",
+                specs: ["Intricate stress-relieving patterns", "Thick bleed-resistant paper", "Suitable for color pencils & gel pens", "Delightful gift for teens & adults"]
+            },
+            {
+                id: 602,
+                title: "365 Colouring Book Series",
+                category: "books",
+                brand: "Dreamland / Art Lab",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "A page a day full-year coloring book packed with fun illustrations for young artists.",
+                specs: ["365 unique line drawings", "Encourages daily creative practice", "Bold outlines for easy coloring", "High quality white paper"]
+            },
+            {
+                id: 603,
+                title: "Mega Colouring Book Collection",
+                category: "books",
+                brand: "Art Lab Kids",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Jumbo sized coloring book packed with animals, scenery, space, and fantasy themes.",
+                specs: ["Jumbo format with 100+ pages", "Varied illustration themes", "Supports crayons, markers & pencils", "Great activity book for children"]
+            },
+            {
+                id: 604,
+                title: "Mandala Colouring Book for Focus",
+                category: "books",
+                brand: "Art Therapy Press",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Circular geometric mandala patterns for meditation, color harmony, and calm focus.",
+                specs: ["50+ detailed mandala designs", "Single-sided printed pages", "Ideal for fineliners & fine markers", "Promotes focus & mindfulness"]
+            },
+
+            // GROUP 7: Craft, Adhesives & Tapes
+            {
+                id: 701,
+                title: "Hot Melt Glue Guns (Big & Small)",
+                category: "craft",
+                brand: "Art Lab Craft",
+                image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+                description: "Quick heating electric glue guns in Big (60W) and Small (20W) sizes for craft bonding.",
+                specs: ["Fast 3-minute PTC heating element", "Big (60W) & Small (20W) options", "Includes insulated nozzle & stand", "Compatible with standard glue sticks"]
+            },
+            {
+                id: 702,
+                title: "Adhesive Glue Sticks (36g & 8g)",
+                category: "craft",
+                brand: "Deli / Amos",
+                image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+                description: "Non-toxic washable PVA glue sticks for paper, cardboard, photos, and school crafts.",
+                specs: ["36gram large & 8gram pocket sizes", "Smooth wrinkle-free application", "Washable & solvent-free formula", "Strong initial bond"]
+            },
+            {
+                id: 703,
+                title: "Masking Tapes & Double Sided Tape (30411)",
+                category: "craft",
+                brand: "Art Lab Tapes",
+                image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+                description: "Artist masking tape (1 inch & 2 inch) for crisp watercolor borders and double-sided foam tape 30411.",
+                specs: ["Masking tape widths: 1 inch & 2 inch", "Residue-free clean paper peel", "Double-sided tape model 30411", "Essential for watercolor masking"]
+            },
+            {
+                id: 704,
+                title: "Heavy Duty Packing Tape Dispenser",
+                category: "craft",
+                brand: "Deli Studio",
+                image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+                description: "Ergonomic handheld tape dispenser gun for quick sealing of packaging boxes and parcels.",
+                specs: ["Fits up to 2-inch tape rolls", "Sharp stainless steel cutting blade", "Adjustable tension brake", "Comfortable pistol grip"]
+            },
+            {
+                id: 705,
+                title: "Colorful Clay Dough Set",
+                category: "craft",
+                brand: "Art Lab Kids",
+                image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80",
+                description: "Super soft, non-sticky modeling clay dough in vibrant primary and secondary colors.",
+                specs: ["Assorted multicolor clay tubs", "Non-toxic wheat-based formula", "Soft and easy to mold for children", "Air-sealable containers"]
+            },
+
+            // GROUP 8: Cutting, Measuring & Office Stationery
+            {
+                id: 801,
+                title: "Transparent Sticky Notes (3x3 Inch)",
+                category: "office",
+                brand: "Art Lab Office",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "Waterproof PET see-through sticky note pads. Annotate textbooks without marking pages.",
+                specs: ["3x3 inch square format", "100% translucent waterproof PET", "Removable repositionable adhesive", "Ideal for ballpoint pens & pencils"]
+            },
+            {
+                id: 802,
+                title: "Precision Detail Knife (6 Blades + Cap)",
+                category: "office",
+                brand: "Art Lab Pro",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "Pen-style aluminum craft scalpel knife for precision paper cutting and stencil making.",
+                specs: ["Includes 6 razor-sharp steel replacement blades", "Non-slip aluminum textured handle", "Protective safety cap included", "Precision stencil & paper carver"]
+            },
+            {
+                id: 803,
+                title: "Cooter Paper Cutter & Blade Refills",
+                category: "office",
+                brand: "Cooter / Deli",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "Heavy duty snap-off utility paper cutter with auto-lock dial and blade refill pack.",
+                specs: ["18mm snap-off carbon steel blade", "Auto-lock blade slider", "Includes replacement blade box", "Cuts cardboard, foam, and paper"]
+            },
+            {
+                id: 804,
+                title: "Craft Scissors (L, M, S & Kids Safety)",
+                category: "office",
+                brand: "Deli",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "Stainless steel craft scissors in Large, Medium, Small sizes plus blunt-tip Kids safety scissors.",
+                specs: ["Sizes: Large, Medium, Small, and Kids", "Rust-resistant stainless steel blades", "Soft grip ergonomic handles", "Blunt tip rounded safety scissors for kids"]
+            },
+            {
+                id: 805,
+                title: "Heavy Duty Stapler & Pins (23/6, 23/8)",
+                category: "office",
+                brand: "Deli Heavy Duty",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "High capacity studio stapler capable of binding up to 100 sheets alongside 23/6 & 23/8 pins.",
+                specs: ["Heavy duty leverage arm stapler", "Includes 23/6 & 23/8 staple pin boxes", "Adjustable paper margin guide", "Staples up to 100 pages"]
+            },
+            {
+                id: 806,
+                title: "Self-Healing Cutting Mats (A4, A3, A2, A1)",
+                category: "office",
+                brand: "Art Lab Cutting Mat",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "5-layer self-healing grid cutting mats available across all sizes from A4 up to A1.",
+                specs: ["Sizes: A4, A3, A2, and A1", "5-layer self-healing PVC construction", "Dual-sided grid lines & angle guides", "Protects desk surface from knife cuts"]
+            },
+            {
+                id: 807,
+                title: "Deli Desk Fasteners (Pins 003, Clips 0024, Push Pins 0021)",
+                category: "office",
+                brand: "Deli Office",
+                image: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80",
+                description: "Essential desk organizer items: Deli Office Pin 003, Paper Clips 0024, and Push Pins 0021.",
+                specs: ["Deli 003 office silver pins", "Deli 0024 vinyl coated paper clips", "Deli 0021 colorful thumb push pins", "Clear plastic tub storage"]
+            },
+
+            // GROUP 9: Kits & Sets
+            {
+                id: 901,
+                title: "Doms Champion Art Kit",
+                category: "kits",
+                brand: "Doms",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "All-in-one comprehensive student art gift kit packed in a heavy duty transparent carry case.",
+                specs: ["Includes color pencils, oil pastels & wax crayons", "Water color cakes & drawing book included", "Includes ruler, sharpener, eraser & pencils", "Perfect gift for young artists"]
+            },
+            {
+                id: 902,
+                title: "Doms Artsy Kit",
+                category: "kits",
+                brand: "Doms",
+                image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+                description: "Specially curated creative kit featuring rich pastel tools and sketch materials.",
+                specs: ["Oil pastels & sketch pens included", "Groove graphite pencil & eraser", "Drawing pad & craft scissors", "Compact attractive gift box"]
+            },
+            {
+                id: 903,
+                title: "Doms Art Strokes Painting Set",
+                category: "kits",
+                brand: "Doms",
+                image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80",
+                description: "Painting-centric kit loaded with tempera colors, water cakes, paint brushes, and palette.",
+                specs: ["Tempera color bottles & watercolor cakes", "Assorted synthetic paint brushes", "Color mixing palette", "Ideal for budding painters"]
+            },
+            {
+                id: 904,
+                title: "Doms Painting Kit Deluxe",
+                category: "kits",
+                brand: "Doms",
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80",
+                description: "Deluxe painting compilation set for canvas and paper watercolor activities.",
+                specs: ["Poster colors & acrylic tubes included", "Canvas board & drawing pad", "Mixing palette & brush set", "Comprehensive studio starter kit"]
+            }
+        ];
+
+        // Dynamic Renderer Function
+        function renderProducts(items) {
+            const grid = document.getElementById('product-grid');
+            const noResults = document.getElementById('no-results');
+
+            if (items.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = items.map(product => `
+                <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative h-48 overflow-hidden bg-slate-100">
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold tracking-wider uppercase">
+                            ${product.brand}
+                        </span>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base leading-snug group-hover:text-art-purple transition-colors font-serif">
+                                ${product.title}
+                            </h3>
+                            <p class="text-slate-600 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                                ${product.description}
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                            <button onclick="openModal(${product.id})" class="text-xs font-bold text-art-purple hover:text-art-magenta transition-colors flex items-center gap-1">
+                                Details <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <a href="https://wa.me/9779800000000?text=Hi%20Art%20Lab%20Hetauda,%20I%20am%20interested%20in%20${encodeURIComponent(product.title)}" 
+                               target="_blank" 
+                               class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-art-purple text-white font-bold text-xs transition-colors flex items-center gap-1 shadow">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Inquire
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Logic for 9 Groups
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function filterProducts() {
+            const filtered = productsData.filter(product => {
+                const matchesCat = currentCategory === 'all' || product.category === currentCategory;
+                const matchesSearch = product.title.toLowerCase().includes(searchQuery) || 
+                                      product.description.toLowerCase().includes(searchQuery) ||
+                                      product.brand.toLowerCase().includes(searchQuery);
+                return matchesCat && matchesSearch;
+            });
+            renderProducts(filtered);
+        }
+
+        // Initialize Filter Button Handlers
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('bg-art-purple', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-white', 'text-slate-700', 'hover:bg-slate-100');
+                });
+                button.classList.remove('bg-white', 'text-slate-700', 'hover:bg-slate-100');
+                button.classList.add('bg-art-purple', 'text-white', 'shadow-md');
+
+                currentCategory = button.dataset.category;
+                filterProducts();
+            });
+        });
+
+        // Search Input Handler
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterProducts();
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        function openModal(id) {
+            const product = productsData.find(p => p.id === id);
+            if (!product) return;
+
+            document.getElementById('modal-img').src = product.image;
+            document.getElementById('modal-title').textContent = product.title;
+            document.getElementById('modal-brand').textContent = `Brand: ${product.brand}`;
+            document.getElementById('modal-category').textContent = product.category.toUpperCase();
+            document.getElementById('modal-desc').textContent = product.description;
+
+            const specsList = document.getElementById('modal-specs');
+            specsList.innerHTML = product.specs.map(spec => `
+                <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>${spec}</span>
+                </li>
+            `).join('');
+
+            const waBtn = document.getElementById('modal-whatsapp-btn');
+            waBtn.href = `https://wa.me/9779800000000?text=Hi%20Art%20Lab%20Hetauda,%20I%20would%20like%20to%20inquire%20about%20availability%20for%20"${encodeURIComponent(product.title)}"`;
+
+            modal.classList.remove('hidden');
+        }
+
+        closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Inquiry Form WhatsApp Redirect
+        document.getElementById('inquiry-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const category = document.getElementById('form-category').value;
+            const message = document.getElementById('form-message').value;
+
+            const waText = `Hi Art Lab Hetauda!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Category:* ${encodeURIComponent(category)}%0A*Message:* ${encodeURIComponent(message)}`;
+            
+            window.open(`https://wa.me/9779800000000?text=${waText}`, '_blank');
+        });
+
+        // Set Dynamic Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Initial Load
+        renderProducts(productsData);
+    </script>
+</body>
+</html>
